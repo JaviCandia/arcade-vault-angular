@@ -1,4 +1,3 @@
-
 You are an expert in TypeScript, Angular, and scalable web application development. You write functional, maintainable, performant, and accessible code following Angular and TypeScript best practices.
 
 ## TypeScript Best Practices
@@ -56,20 +55,21 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 ## Planning (Spec-Driven Development)
 
-- These rules apply ONLY when working in plan mode.
-- In plan mode, structure the plan following `specs/_template.md`. Be concise: no filler sections.
-- The Tasks section lists only implementation work. Do not include workflow steps
-  (saving the spec, updating status, checking off criteria) in the spec.
-- Once the plan is approved, save it as `specs/NNN-feature-name.md`
-  (NNN = next available number) before writing any code.
-- Check off tasks and acceptance criteria as they are completed. When finished, set the status to "Done".
-- Outside plan mode, do NOT create or update specs. Just do the task.
+- When a plan made in plan mode is approved, before writing any code, save it as
+  `specs/NNN-feature-name.md` (NNN = next available number), condensed into the
+  structure of `specs/_template.md`.
+- In the saved spec, the Tasks section lists only implementation work.
+- Check off tasks and acceptance criteria in the spec as they are completed.
+  When finished, set the status to "Done".
+- Outside plan mode, do NOT create or update specs.
 
 ## Language
+
 - Code, comments, commits and specs: English.
 - Conversation with me: Spanish.
 
 ## Skills
+
 - Consult the angular-developer skill for newer Angular APIs (Signal Forms, httpResource, resource, linkedSignal) or when unsure about current best practices.
 - Use the frontend-design skill when building or restyling UI.
 - If a skill conflicts with this file, this file takes precedence.
