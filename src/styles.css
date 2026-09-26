@@ -1,2 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
-
+/* Arcade Vault global theme */
+@import './styles/fonts.css';
+@import './styles/tokens.css';
+@import './styles/base.css';
+@import './styles/background.css';
+@import './styles/utilities.css';
+@import './styles/components/nav.css';
+@import './styles/components/buttons.css';
+@import './styles/components/cards.css';
+@import './styles/components/leaderboard.css';
+@import './styles/components/crt.css';
+@import './styles/components/modal.css';
+@import './styles/components/gamepad.css';
+@import './styles/pages/library.css';
+@import './styles/pages/detail.css';
+@import './styles/pages/player.css';
+@import './styles/pages/auth.css';
+@import './styles/pages/hall.css';
+@import './styles/pages/home.css';
+@import './styles/pages/about.css';
+@import './styles/pages/activity.css';
+@import './styles/pages/pricing.css';
+@import './styles/a11y.css';

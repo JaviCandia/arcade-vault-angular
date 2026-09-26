@@ -1,0 +1,20 @@
+/* ===== player ===== */
+.av-player {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 24px 64px;
+}
+.player-hud {
+  display: flex; gap: 16px; align-items: center; justify-content: space-between;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.hud-stat { display: flex; flex-direction: column; gap: 4px; }
+.hud-stat .l { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); letter-spacing: 0.14em; text-transform: uppercase; }
+.hud-stat .v { font-family: var(--pixel); font-size: 16px; color: var(--cyan); text-shadow: 0 0 6px rgba(0,245,255,0.5); }
+.hud-stat.lives .v { color: var(--magenta); text-shadow: 0 0 6px rgba(255,0,110,0.5); }
+.hud-stat.level .v { color: var(--yellow); text-shadow: 0 0 6px rgba(245,255,0,0.5); }
+.hud-actions { display: flex; gap: 10px; }
