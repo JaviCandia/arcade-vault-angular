@@ -1,0 +1,18 @@
+<article class="card" appTilt (click)="open()">
+  <div class="cover" aria-hidden="true">
+    <div class="cover-bg" [class]="'cover-bg ' + game().cover"></div>
+    <div class="label">{{ game().cat }}</div>
+  </div>
+  <div class="meta">
+    <h3 class="title"><a [routerLink]="['/biblioteca', game().id]">{{ game().title }}</a></h3>
+    <div class="desc">{{ game().short }}</div>
+    <div class="row">
+      <div class="score-badge">
+        <span>MEJOR PUNTUACIÓN</span>
+        <b>{{ game().best | score }}</b>
+      </div>
+      <a [class]="buttonClass()" [routerLink]="['/biblioteca', game().id]" (click)="$event.stopPropagation()"
+        [attr.aria-label]="'Jugar ' + game().title">JUGAR</a>
+    </div>
+  </div>
+</article>

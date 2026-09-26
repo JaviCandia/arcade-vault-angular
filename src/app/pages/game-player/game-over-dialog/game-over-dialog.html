@@ -1,0 +1,19 @@
+<div class="modal-bd">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="go-title">
+    <h2 id="go-title">FIN DEL JUEGO</h2>
+    <div class="final-label">PUNTUACIÓN FINAL</div>
+    <div class="final">{{ score() | score }}</div>
+    @if (!saved()) {
+      <div class="input-row">
+        <input #nameInput [formControl]="name" (input)="onNameInput()" aria-label="Tus iniciales" placeholder="TUS INICIALES" maxlength="10" />
+        <button type="button" class="btn yellow" (click)="submit()">GUARDAR PUNTUACIÓN</button>
+      </div>
+    } @else {
+      <div class="toast-saved" role="status">▸ PUNTUACIÓN GUARDADA_</div>
+    }
+    <div class="actions">
+      <button type="button" class="btn" (click)="restart.emit()">JUGAR DE NUEVO</button>
+      <a class="btn magenta" routerLink="/biblioteca">VOLVER AL VAULT</a>
+    </div>
+  </div>
+</div>

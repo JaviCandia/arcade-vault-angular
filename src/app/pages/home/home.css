@@ -1,0 +1,6 @@
+:host { display: block; }
+.mt { text-align: center; margin-top: 24px; }
+.full { width: 100%; }
+.perks { list-style: none; margin: 0; padding: 0; }
+.ft-title, .pc-name, .faq-q, .ac-title { margin: 0; font-weight: 400; }
+.lb-link { display: inline-block; }

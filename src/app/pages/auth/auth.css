@@ -1,0 +1,7 @@
+:host { display: block; }
+.subtitle { font-size: 11px; color: var(--ink-faint); letter-spacing: 0.16em; margin-top: 6px; }
+.full { width: 100%; }
+form .full { margin-top: 8px; }
+.guest { margin-top: 10px; }
+.error { color: var(--magenta); font-size: 11px; margin-top: 6px; }
+.terms { margin-top: 18px; text-align: center; font-size: 11px; color: var(--ink-faint); letter-spacing: 0.1em; }

@@ -1,0 +1,50 @@
+<div class="about fade-in">
+  <section class="about-hero">
+    <div class="kicker pixel neon-yellow">▸ ACERCA DE</div>
+    <h1 class="about-title">ACERCA DE ARCADE VAULT</h1>
+    <p class="about-mission">
+      ARCADE VAULT nació del amor por los videojuegos clásicos. Nuestra misión es preservar y celebrar
+      los arcades que definieron una generación, haciéndolos accesibles para todos, en cualquier lugar
+      y sin costo.
+    </p>
+
+    <div class="highlight-row">
+      @for (h of highlights; track h.text; let i = $index) {
+        <div [class]="'highlight ' + h.color" [style.transition-delay.ms]="i * 80">
+          <app-pixel-icon [kind]="h.icon" iconClass="hl-icon" />
+          <div class="hl-text pixel">{{ h.text }}</div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <div class="about-divider" appReveal aria-hidden="true">
+    <div class="div-bar"></div>
+    <div class="div-pixels">
+      @for (p of pixels; track p) {
+        <span [style.animation-delay.ms]="p * 80"></span>
+      }
+    </div>
+    <div class="div-bar"></div>
+  </div>
+
+  <section class="about-contact" appReveal aria-labelledby="contact-title">
+    <div class="contact-grid">
+      <div class="contact-intro">
+        <div class="kicker pixel neon-cyan">▸ CONTACTO</div>
+        <h2 class="contact-title" id="contact-title">CONTÁCTANOS</h2>
+        <p class="contact-sub">
+          ¿Tienes alguna sugerencia, quieres proponer un juego, o simplemente quieres saludar?
+          Escríbenos.
+        </p>
+        <div class="contact-tips">
+          <div class="tip"><span class="tip-led" aria-hidden="true"></span>RESPUESTA EN 24-48H</div>
+          <div class="tip"><span class="tip-led y" aria-hidden="true"></span>SUGERENCIAS BIENVENIDAS</div>
+          <div class="tip"><span class="tip-led m" aria-hidden="true"></span>SIN SPAM, JAMÁS</div>
+        </div>
+      </div>
+
+      <app-contact-form />
+    </div>
+  </section>
+</div>

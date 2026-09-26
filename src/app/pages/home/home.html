@@ -1,0 +1,161 @@
+<div class="home fade-in">
+  <!-- HERO -->
+  <section class="home-hero">
+    <app-floating-silhouettes />
+    <div class="home-hero-inner">
+      <div class="hero-eyebrow pixel neon-yellow">▸ INSERTA UNA MONEDA<span class="blink" aria-hidden="true">_</span></div>
+      <h1 class="home-title">
+        <span class="line-1">EL ARCADE</span>
+        <span class="line-2">CLÁSICO ESTÁ</span>
+        <span class="line-3">DE VUELTA</span>
+      </h1>
+      <p class="home-sub">
+        Juega los mejores clásicos directamente en tu navegador.<br />
+        Sin descargas. Sin costo. Solo diversión.
+      </p>
+      <div class="home-ctas">
+        <a class="btn xl pulse" routerLink="/biblioteca">▶  EXPLORAR JUEGOS</a>
+        <a class="btn xl magenta" routerLink="/acceso">✦  CREAR CUENTA</a>
+      </div>
+    </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>DESLIZA</span>
+      <span class="arrow">▼</span>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="home-section" appReveal aria-labelledby="why-title">
+    <div class="section-head">
+      <div class="kicker pixel neon-magenta" aria-hidden="true">// 01</div>
+      <h2 class="section-title" id="why-title">¿POR QUÉ ARCADE VAULT?</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="feature-grid">
+      @for (f of features; track f.title; let i = $index) {
+        <div [class]="'feature-card ' + f.color" [style.transition-delay.ms]="i * 80">
+          <app-pixel-icon [kind]="f.icon" />
+          <h3 class="ft-title pixel">{{ f.title }}</h3>
+          <div class="ft-desc">{{ f.desc }}</div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- GAMES PREVIEW -->
+  <section class="home-section" appReveal aria-labelledby="games-title">
+    <div class="section-head">
+      <div class="kicker pixel neon-cyan" aria-hidden="true">// 02</div>
+      <h2 class="section-title" id="games-title">JUEGOS DISPONIBLES AHORA</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="mini-rail">
+      @for (g of games; track g.id) {
+        <app-mini-card [game]="g" />
+      }
+    </div>
+    <div class="mt">
+      <a class="btn lg" routerLink="/biblioteca">VER TODOS LOS JUEGOS →</a>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="home-stats" appReveal aria-label="Estadísticas">
+    <div class="stats-inner">
+      @for (st of stats; track st.u; let i = $index) {
+        <div class="stat-block" [style.transition-delay.ms]="i * 90">
+          <div class="stat-n neon-yellow">{{ st.n }}</div>
+          <div class="stat-u pixel">{{ st.u }}</div>
+          <div class="stat-s">{{ st.s }}</div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <!-- ACTIVITY -->
+  <section class="home-section" appReveal aria-labelledby="activity-title">
+    <div class="section-head">
+      <div class="kicker pixel neon-yellow" aria-hidden="true">// 03</div>
+      <h2 class="section-title" id="activity-title">ACTIVIDAD EN VIVO</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="activity-grid">
+      <div class="activity-card">
+        <div class="ac-head">
+          <h3 class="ac-title pixel">▸ ÚLTIMAS PUNTUACIONES</h3>
+        </div>
+        <div class="ticker">
+          @for (r of ticker; track r.p; let i = $index) {
+            <div class="tick-row" [style.animation-delay.ms]="i * 60">
+              <span [class]="'tk-p neon-' + r.c">{{ r.p }}</span>
+              <span class="tk-mid">▸ {{ r.g }}</span>
+              <span class="tk-s">+{{ r.s | score }}</span>
+              <span class="tk-t">{{ r.t }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <div class="ac-head">
+          <h3 class="ac-title pixel neon-magenta">▸ TOP JUGADORES · HOY</h3>
+          <a class="lb-link" routerLink="/salon-de-la-fama">VER SALÓN →</a>
+        </div>
+        <div class="top-list">
+          @for (r of top; track r.p; let i = $index) {
+            <div [class]="'top-row ' + rankClass(i)">
+              <span class="tp-rk">#{{ pad(r.r) }}</span>
+              <span class="tp-bar" aria-hidden="true"><span class="tp-fill" [style.width.%]="100 - i * 16"></span></span>
+              <span class="tp-p">{{ r.p }}</span>
+              <span class="tp-s">{{ r.s | score }}</span>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="home-section" appReveal aria-labelledby="pricing-title">
+    <div class="section-head">
+      <div class="kicker pixel neon-green" aria-hidden="true">// 04</div>
+      <h2 class="section-title" id="pricing-title">PRECIOS</h2>
+      <div class="section-rule"></div>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="pc-label pixel">PLAN ÚNICO</div>
+        <h3 class="pc-name pixel">JUGADOR VAULT</h3>
+        <div class="pc-amount">
+          <span class="pc-amount-n">$0</span>
+          <span class="pc-amount-u">/ SIEMPRE</span>
+        </div>
+        <div class="pc-tag">SIN TRUCOS · SIN LETRA PEQUEÑA</div>
+        <ul class="pc-list perks">
+          @for (p of perks; track p) {
+            <li>✔ {{ p }}</li>
+          }
+        </ul>
+        <a class="btn xl pulse full" routerLink="/acceso">EMPEZAR GRATIS →</a>
+        <div class="pc-foot">No pedimos tarjeta. Nunca lo haremos.</div>
+        <div class="pc-stamp pixel" aria-hidden="true">FREE<br />PLAY</div>
+      </div>
+
+      <div class="pricing-faq">
+        @for (f of faq; track f.q) {
+          <div class="faq-item">
+            <h3 class="faq-q pixel">{{ f.q }}</h3>
+            <div class="faq-a">{{ f.a }}</div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="home-final" appReveal>
+    <h2 class="final-title pixel">¿LISTO PARA JUGAR?</h2>
+    <a class="btn xl pulse final-cta" routerLink="/biblioteca">INSERTAR MONEDA →</a>
+    <div class="final-tag">Gratis. Sin registro obligatorio. Empieza en segundos.</div>
+  </section>
+</div>

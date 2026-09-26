@@ -1,0 +1,7 @@
+<a class="mini-card" [routerLink]="['/biblioteca', game().id]">
+  <div class="mini-cover" aria-hidden="true"><div [class]="'cover-bg ' + game().cover"></div></div>
+  <div class="mini-meta">
+    <div class="mini-title">{{ game().title }}</div>
+    <div class="mini-cat">{{ game().cat }}</div>
+  </div>
+</a>

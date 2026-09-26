@@ -1,0 +1,3 @@
+:host { display: block; }
+.empty { grid-column: 1 / -1; text-align: center; padding: 80px; color: var(--ink-faint); }
+.empty-title { font-size: 14px; color: var(--magenta); margin-bottom: 12px; }
