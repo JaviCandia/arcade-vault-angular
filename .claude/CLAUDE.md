@@ -64,3 +64,8 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 ## Language
 - Code, comments, commits and specs: English.
 - Conversation with me: Spanish.
+
+## Skills
+- Consult the angular-developer skill for newer Angular APIs (Signal Forms, httpResource, resource, linkedSignal) or when unsure about current best practices.
+- Use the frontend-design skill when building or restyling UI.
+- If a skill conflicts with this file, this file takes precedence.
