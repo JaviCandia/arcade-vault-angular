@@ -56,10 +56,14 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 
 ## Planning (Spec-Driven Development)
 
-- When planning a feature, structure the plan following `specs/_template.md`. Be concise: no filler sections.
-- Once the plan is approved, the FIRST step is to save it as `specs/NNN-feature-name.md`
-  (NNN = next available number). Then implement.
-- When finished, check off the met criteria and set the status to "Done".
+- These rules apply ONLY when working in plan mode.
+- In plan mode, structure the plan following `specs/_template.md`. Be concise: no filler sections.
+- The Tasks section lists only implementation work. Do not include workflow steps
+  (saving the spec, updating status, checking off criteria) in the spec.
+- Once the plan is approved, save it as `specs/NNN-feature-name.md`
+  (NNN = next available number) before writing any code.
+- Check off tasks and acceptance criteria as they are completed. When finished, set the status to "Done".
+- Outside plan mode, do NOT create or update specs. Just do the task.
 
 ## Language
 - Code, comments, commits and specs: English.
@@ -69,3 +73,4 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Consult the angular-developer skill for newer Angular APIs (Signal Forms, httpResource, resource, linkedSignal) or when unsure about current best practices.
 - Use the frontend-design skill when building or restyling UI.
 - If a skill conflicts with this file, this file takes precedence.
+- This project does NOT use Tailwind CSS. Ignore the Tailwind sections of the angular-developer skill; use plain CSS.

@@ -1,0 +1,39 @@
+/* ===== pixel + neon text ===== */
+.pixel { font-family: var(--pixel); letter-spacing: 0.04em; line-height: 1.25; text-transform: uppercase; }
+.mono { font-family: var(--mono); }
+
+.neon-cyan { color: var(--cyan); text-shadow: 0 0 6px rgba(0, 245, 255, 0.65), 0 0 16px rgba(0, 245, 255, 0.45); }
+.neon-magenta { color: var(--magenta); text-shadow: 0 0 6px rgba(255, 0, 110, 0.65), 0 0 16px rgba(255, 0, 110, 0.45); }
+.neon-yellow { color: var(--yellow); text-shadow: 0 0 6px rgba(245, 255, 0, 0.7), 0 0 16px rgba(245, 255, 0, 0.4); }
+.neon-green { color: var(--green); text-shadow: 0 0 6px rgba(0, 255, 136, 0.6), 0 0 16px rgba(0, 255, 136, 0.35); }
+
+.flicker {
+  animation: flicker 5s infinite steps(1, end);
+}
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.35; }
+}
+
+/* misc */
+.divider { height: 1px; background: var(--line); margin: 8px 0; }
+
+.fade-in { animation: fadeIn 240ms ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.slide-in { animation: slideIn 260ms ease-out; }
+@keyframes slideIn { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: none; } }
+
+/* tweaks */
+.tw-section { margin-bottom: 14px; }
+.tw-label { font-family: var(--pixel); font-size: 9px; color: var(--ink-faint); letter-spacing: 0.14em; margin-bottom: 8px; }
+
+/* spinner */
+.spinner {
+  display: inline-block;
+  width: 16px; height: 16px;
+  background: var(--cyan);
+  box-shadow: 0 0 8px var(--cyan);
+  animation: spinpix 0.6s steps(8) infinite;
+  clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+@keyframes spinpix { to { transform: rotate(360deg); } }
