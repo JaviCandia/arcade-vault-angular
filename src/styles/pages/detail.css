@@ -15,14 +15,14 @@
   overflow: hidden;
 }
 .detail-info { display: flex; flex-direction: column; gap: 16px; }
-.detail-info h2 {
+.detail-info h1, .detail-info h2 {
   margin: 0;
   font-family: var(--pixel);
   font-size: clamp(20px, 3vw, 32px);
   letter-spacing: 0.06em;
 }
 .detail-tags { display: flex; gap: 8px; flex-wrap: wrap; }
-.detail-tags span {
+.detail-tags span, .detail-tags li {
   font-family: var(--pixel); font-size: 9px; letter-spacing: 0.12em;
   padding: 6px 10px;
   border: 1px solid var(--line); color: var(--ink-dim);

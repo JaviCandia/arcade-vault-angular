@@ -1,0 +1,8 @@
+:host { display: block; }
+.hall-head p { font-size: 10px; }
+.champion { font-size: 9px; color: var(--gold); letter-spacing: 0.18em; }
+.podium-slot .first { font-size: 36px; margin-top: 4px; }
+.podium-slot .first-score { font-size: 20px; }
+.hall-table .tr .yellow { color: var(--yellow); }
+.hall-table .tr .glow { text-shadow: 0 0 6px rgba(245, 255, 0, 0.5); }
+.back { text-align: center; margin-top: 32px; }

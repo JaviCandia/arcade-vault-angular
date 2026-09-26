@@ -1,0 +1,37 @@
+@if (game(); as g) {
+  <div class="av-detail fade-in">
+    <div>
+      <div class="detail-cover" aria-hidden="true">
+        <div [class]="'cover-bg ' + g.cover"></div>
+      </div>
+      <div class="detail-info info">
+        <ul class="detail-tags tags">
+          <li>{{ g.cat }}</li>
+          <li>1 JUGADOR</li>
+          <li>TECLADO / TÁCTIL</li>
+          <li>RETRO 1985</li>
+        </ul>
+        <h1 class="neon-cyan title">{{ g.title }}</h1>
+        <p>{{ g.long }}</p>
+        <div class="stat-strip">
+          <div><div class="l">Partidas</div><div class="v">{{ g.plays }}</div></div>
+          <div><div class="l">Mejor global</div><div class="v best">{{ g.best | score }}</div></div>
+          <div><div class="l">Dificultad</div><div class="v difficulty" aria-label="3 de 5 estrellas">★ ★ ★ ☆ ☆</div></div>
+        </div>
+        <div class="detail-actions">
+          <a class="btn xl pulse" [routerLink]="['/biblioteca', g.id, 'jugar']">▶  JUGAR AHORA</a>
+          <a class="btn ghost lg" routerLink="/biblioteca">VOLVER AL VAULT</a>
+        </div>
+      </div>
+    </div>
+
+    <aside aria-label="Tabla de puntuaciones">
+      <app-leaderboard [rows]="scores()" />
+    </aside>
+  </div>
+} @else {
+  <div class="not-found" role="alert">
+    <h1 class="pixel">JUEGO NO ENCONTRADO</h1>
+    <a class="btn" routerLink="/biblioteca">VOLVER A LA BIBLIOTECA</a>
+  </div>
+}

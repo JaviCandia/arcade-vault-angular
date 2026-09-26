@@ -1,0 +1,7 @@
+:host { display: block; }
+.info { margin-top: 20px; }
+.tags { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.best { color: var(--magenta); text-shadow: 0 0 6px rgba(255, 0, 110, 0.5); }
+.difficulty { color: var(--yellow); text-shadow: 0 0 6px rgba(245, 255, 0, 0.5); }
+.not-found { text-align: center; padding: 80px 20px; display: grid; gap: 24px; justify-items: center; }
+.not-found h1 { font-size: 16px; color: var(--magenta); }

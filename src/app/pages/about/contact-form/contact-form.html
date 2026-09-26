@@ -1,0 +1,37 @@
+<form class="contact-form" [class.shake]="shake()" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  @if (sent(); as who) {
+    <div class="terminal-success" role="status">
+      <div class="term-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="term-title">VAULT-OS // TERMINAL</span>
+      </div>
+      <div class="term-body">
+        <div class="line"><span class="prompt">vault&#64;arcade:~$</span> ./send_message --to=team</div>
+        <div class="line dim">[OK] Conectando con servidor…</div>
+        <div class="line dim">[OK] Validando contenido…</div>
+        <div class="line dim">[OK] Transmitiendo paquete…</div>
+        <div class="line success">&gt; MENSAJE RECIBIDO. TE RESPONDEREMOS PRONTO. GRACIAS, {{ who.toUpperCase() }}.<span class="caret" aria-hidden="true">_</span></div>
+        <div class="again">
+          <button class="btn ghost" type="button" (click)="reset()">ENVIAR OTRO MENSAJE</button>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <div class="field">
+      <label for="c-name">NOMBRE</label>
+      <input id="c-name" formControlName="name" autocomplete="name" placeholder="px_kai" [attr.aria-invalid]="invalid('name')" />
+      @if (invalid('name')) { <div class="error" role="alert">Escribe tu nombre.</div> }
+    </div>
+    <div class="field">
+      <label for="c-email">CORREO ELECTRÓNICO</label>
+      <input id="c-email" type="email" formControlName="email" autocomplete="email" placeholder="jugador@vault.gg" [attr.aria-invalid]="invalid('email')" />
+      @if (invalid('email')) { <div class="error" role="alert">Introduce un correo válido.</div> }
+    </div>
+    <div class="field">
+      <label for="c-msg">MENSAJE</label>
+      <textarea id="c-msg" rows="5" formControlName="msg" placeholder="Cuéntanos qué tienes en mente…" [attr.aria-invalid]="invalid('msg')"></textarea>
+      @if (invalid('msg')) { <div class="error" role="alert">Escribe un mensaje.</div> }
+    </div>
+    <button class="btn xl press full" type="submit">▶  ENVIAR MENSAJE</button>
+  }
+</form>

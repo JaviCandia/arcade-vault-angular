@@ -1,0 +1,57 @@
+@if (game(); as g) {
+  <div class="av-player fade-in">
+    <h1 class="sr-only">{{ g.title }}</h1>
+    <div class="player-hud">
+      <div class="stats">
+        <div class="hud-stat"><div class="l">Jugador</div><div class="v name">{{ playerName() }}</div></div>
+        <div class="hud-stat"><div class="l">Puntuación</div><div class="v">{{ score() | score }}</div></div>
+        <div class="hud-stat lives"><div class="l">Vidas</div><div class="v">{{ hearts() }}</div></div>
+        <div class="hud-stat level"><div class="l">Nivel</div><div class="v">{{ levelLabel() }}</div></div>
+      </div>
+      <div class="hud-actions">
+        <button type="button" class="btn yellow" [attr.aria-pressed]="paused()" (click)="togglePause()">{{ paused() ? 'REANUDAR' : 'PAUSA' }}</button>
+        <button type="button" class="btn magenta" (click)="end()">FIN</button>
+        <a class="btn ghost" [routerLink]="['/biblioteca', g.id]">SALIR</a>
+      </div>
+    </div>
+
+    <div class="crt">
+      <div class="crt-screen">
+        <div class="game-arena" aria-hidden="true">
+          <div class="grid-floor"></div>
+          <div class="enemy e1"></div>
+          <div class="enemy e2"></div>
+          <div class="enemy e3"></div>
+          <div class="player-ship"></div>
+        </div>
+        @if (paused()) {
+          <div class="crt-content pause" role="status">
+            <div>
+              <div class="pixel neon-yellow pause-title">EN PAUSA</div>
+              <div class="mono pause-sub">PULSA REANUDAR PARA CONTINUAR</div>
+            </div>
+          </div>
+        }
+      </div>
+      <div class="crt-bottom">
+        <span class="led">SEÑAL OK</span>
+        <span>{{ g.title }} · CRT-83 · 60 HZ</span>
+        <span>CARGA · 1MB</span>
+      </div>
+    </div>
+
+    @if (over()) {
+      <app-game-over-dialog
+        [score]="score()"
+        [initialName]="playerName()"
+        (save)="save($event)"
+        (restart)="restart()"
+      />
+    }
+  </div>
+} @else {
+  <div class="not-found" role="alert">
+    <h1 class="pixel">JUEGO NO ENCONTRADO</h1>
+    <a class="btn" routerLink="/biblioteca">VOLVER A LA BIBLIOTECA</a>
+  </div>
+}

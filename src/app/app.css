@@ -1,0 +1,12 @@
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -48px;
+  z-index: 100;
+  padding: 10px 14px;
+  background: var(--bg);
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+}
+.skip-link:focus { top: 8px; }
+.av-main:focus { outline: none; }

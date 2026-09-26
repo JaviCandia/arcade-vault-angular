@@ -1,0 +1,12 @@
+<div class="leaderboard">
+  <h3>MEJORES PUNTUACIONES</h3>
+  <ol class="rows">
+    @for (r of rows(); track r.name; let i = $index) {
+      <li class="lb-row" [class]="'lb-row ' + rankClass(i)">
+        <div class="rk">#{{ pad(r.rank) }}</div>
+        <div class="pl">{{ r.name }}<div class="date">{{ r.date }}</div></div>
+        <div class="sc">{{ r.score | score }}</div>
+      </li>
+    }
+  </ol>
+</div>

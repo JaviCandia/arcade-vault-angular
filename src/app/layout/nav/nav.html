@@ -1,0 +1,43 @@
+<nav class="av-nav" aria-label="Principal">
+  <a class="logo" routerLink="/" aria-label="Arcade Vault, inicio">
+    <div class="logo-mark" aria-hidden="true"></div>
+    <div class="logo-text neon-cyan">ARCADE <span class="neon-magenta">VAULT</span></div>
+  </a>
+  <div class="links">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+    <a routerLink="/biblioteca" routerLinkActive="active">Biblioteca</a>
+    <a routerLink="/salon-de-la-fama" routerLinkActive="active">Salón de la Fama</a>
+    <a routerLink="/acerca-de" routerLinkActive="active">Acerca de</a>
+  </div>
+  <div class="spacer"></div>
+  <div class="coin-counter">
+    <span class="coin" aria-hidden="true"></span>
+    <span>CRÉDITOS · 03</span>
+  </div>
+  @if (user(); as u) {
+    <button type="button" class="btn ghost auth-btn" [attr.aria-label]="'Cerrar sesión de ' + u.name" (click)="signOut()">{{ u.name }} ▾</button>
+  } @else {
+    <a class="btn auth-btn" routerLink="/acceso">Iniciar Sesión</a>
+  }
+  <button
+    #hamburger
+    type="button"
+    class="btn ghost hamburger"
+    aria-label="Menú"
+    aria-controls="mobile-menu"
+    [attr.aria-expanded]="open()"
+    (click)="toggle()"
+  >≡</button>
+</nav>
+
+<div class="av-mobile-backdrop" [class.open]="open()" (click)="close()" aria-hidden="true"></div>
+<aside #panel id="mobile-menu" class="av-mobile-panel" [class.open]="open()" [attr.inert]="open() ? null : ''" aria-label="Menú móvil">
+  <div class="pixel neon-cyan menu-title">MENÚ</div>
+  <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+  <a routerLink="/biblioteca" routerLinkActive="active">Biblioteca</a>
+  <a routerLink="/salon-de-la-fama" routerLinkActive="active">Salón de la Fama</a>
+  <a routerLink="/acerca-de" routerLinkActive="active">Acerca de</a>
+  <a routerLink="/acceso" routerLinkActive="active">{{ accountLabel() }}</a>
+  <div class="grow"></div>
+  <div class="pixel credits">CRÉDITOS · 03</div>
+</aside>

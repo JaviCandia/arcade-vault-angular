@@ -50,6 +50,8 @@
 }
 .card .meta { display: flex; flex-direction: column; gap: 6px; }
 .card .title {
+  margin: 0;
+  font-weight: 400;
   font-family: var(--pixel);
   font-size: 13px;
   letter-spacing: 0.06em;
