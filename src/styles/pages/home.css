@@ -35,7 +35,14 @@
   margin: 28px auto 36px; max-width: 640px;
   font-size: 15px; line-height: 1.7; color: var(--ink-dim); letter-spacing: 0.04em;
 }
-.home-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.home-ctas {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+  gap: 16px; justify-content: center;
+}
+.home-ctas .btn { justify-content: center; text-align: center; white-space: nowrap; }
+@media (max-width: 640px) {
+  .home-ctas { grid-auto-flow: row; grid-auto-columns: auto; }
+}
 .hero-scroll {
   position: absolute; left: 0; right: 0; bottom: 16px; z-index: 3;
   font-family: var(--pixel); font-size: 9px; letter-spacing: 0.2em; color: var(--ink-faint);
