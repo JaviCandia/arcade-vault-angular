@@ -1,0 +1,10 @@
+<canvas #board class="board" role="img" [attr.aria-label]="label()"></canvas>
+<p class="sr-only" aria-live="polite">{{ announcement() }}</p>
+@if (status() === 'ready' && !paused()) {
+  <div class="crt-content ready" role="status">
+    <div>
+      <div class="pixel neon-cyan ready-title">LISTA</div>
+      <div class="mono ready-sub">PULSA UNA FLECHA PARA EMPEZAR</div>
+    </div>
+  </div>
+}
