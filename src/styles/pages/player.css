@@ -1,8 +1,16 @@
 /* ===== player ===== */
 .av-player {
   max-width: 1100px;
+  width: 100%;
   margin: 32px auto;
   padding: 0 24px 64px;
+}
+body.game-view-active .av-player {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 72px);
+  margin: 16px auto;
+  padding: 0 24px 16px;
 }
 .player-hud {
   display: flex; gap: 16px; align-items: center; justify-content: space-between;
@@ -11,6 +19,7 @@
   background: var(--bg-2);
   margin-bottom: 18px;
   flex-wrap: wrap;
+  flex-shrink: 0;
 }
 .hud-stat { display: flex; flex-direction: column; gap: 4px; }
 .hud-stat .l { font-family: var(--mono); font-size: 10px; color: var(--ink-faint); letter-spacing: 0.14em; text-transform: uppercase; }

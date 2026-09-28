@@ -4,6 +4,7 @@
 .pause { background: rgba(0, 0, 0, 0.6); z-index: 5; }
 .pause-title { font-size: 22px; }
 .pause-sub { font-size: 11px; color: var(--ink-dim); margin-top: 10px; letter-spacing: 0.16em; }
+.controls-hint { text-align: center; margin-top: 16px; font-size: 11px; letter-spacing: 0.14em; color: var(--ink-dim); flex-shrink: 0; }
 .not-found { text-align: center; padding: 80px 20px; display: grid; gap: 24px; justify-items: center; }
 .not-found h1 { font-size: 16px; color: var(--magenta); }
 .sr-only {

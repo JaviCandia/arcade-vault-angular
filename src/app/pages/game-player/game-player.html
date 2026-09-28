@@ -5,7 +5,9 @@
       <div class="stats">
         <div class="hud-stat"><div class="l">Jugador</div><div class="v name">{{ playerName() }}</div></div>
         <div class="hud-stat"><div class="l">Puntuación</div><div class="v">{{ score() | score }}</div></div>
-        <div class="hud-stat lives"><div class="l">Vidas</div><div class="v">{{ hearts() }}</div></div>
+        @if (!isSerpentina()) {
+          <div class="hud-stat lives"><div class="l">Vidas</div><div class="v">{{ hearts() }}</div></div>
+        }
         <div class="hud-stat level"><div class="l">Nivel</div><div class="v">{{ levelLabel() }}</div></div>
       </div>
       <div class="hud-actions">
@@ -17,13 +19,23 @@
 
     <div class="crt">
       <div class="crt-screen">
-        <div class="game-arena" aria-hidden="true">
-          <div class="grid-floor"></div>
-          <div class="enemy e1"></div>
-          <div class="enemy e2"></div>
-          <div class="enemy e3"></div>
-          <div class="player-ship"></div>
-        </div>
+        @if (isSerpentina()) {
+          <app-serpentina-game
+            [paused]="paused()"
+            (scoreChange)="score.set($event)"
+            (levelChange)="gameLevel.set($event)"
+            (ended)="end()"
+            (pauseToggle)="togglePause()"
+          />
+        } @else {
+          <div class="game-arena" aria-hidden="true">
+            <div class="grid-floor"></div>
+            <div class="enemy e1"></div>
+            <div class="enemy e2"></div>
+            <div class="enemy e3"></div>
+            <div class="player-ship"></div>
+          </div>
+        }
         @if (paused()) {
           <div class="crt-content pause" role="status">
             <div>
@@ -39,6 +51,9 @@
         <span>CARGA · 1MB</span>
       </div>
     </div>
+    @if (isSerpentina()) {
+      <p class="controls-hint mono">FLECHAS / WASD · MOVER &nbsp;|&nbsp; ESPACIO / P · PAUSA</p>
+    }
 
     @if (over()) {
       <app-game-over-dialog
